@@ -1,6 +1,7 @@
 package com.pallabi.scheduler.config;
 
 import com.google.gson.Gson;
+import com.pallabi.scheduler.CustomerException;
 import com.pallabi.scheduler.model.dto.CustomerDTO;
 import com.pallabi.scheduler.model.generated.Address;
 import com.pallabi.scheduler.model.generated.ComplexObject;
@@ -32,15 +33,21 @@ public class CustomerScheduler {
     private CustomerService customerService;
 
     @Scheduled(cron = "0 0 0 * * ?")
+//    @Scheduled(cron= "0/10 * * ? * *")
     public void runCronJob() throws IOException {
-        Resource fileSystemResource = resourceLoader.getResource(userJOSNFilePath);
-        String json = fileSystemResource.getContentAsString(StandardCharsets.UTF_8);
-        List<ComplexObject> complexObjects = getObjectFromJsonFile(json, ComplexObject.class);
-        complexObjects.forEach(complexObject -> {
-                    CustomerDTO customerDTO = getCustomerDetails(complexObject, json.getBytes());
-                    customerService.addCustomer(customerDTO);
-        });
-        log.info("Running the cron JOB");
+        try {
+            Resource fileSystemResource = resourceLoader.getResource(userJOSNFilePath);
+            String json = fileSystemResource.getContentAsString(StandardCharsets.UTF_8);
+            List<ComplexObject> complexObjects = getObjectFromJsonFile(json, ComplexObject.class);
+            complexObjects.forEach(complexObject -> {
+                CustomerDTO customerDTO = getCustomerDetails(complexObject, json.getBytes());
+                customerService.addCustomer(customerDTO);
+            });
+            log.info("Cron JOB RAN SUCCESSFULLY");
+        } catch(RuntimeException e){
+            log.error("Error while running cron JOB");
+            throw e;
+        }
     }
 
     private CustomerDTO getCustomerDetails(ComplexObject complexObject, byte[] json) {
