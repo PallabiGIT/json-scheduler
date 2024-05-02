@@ -1,4 +1,4 @@
-package com.pallabi.schedule;
+package com.pallabi.scheduler;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
