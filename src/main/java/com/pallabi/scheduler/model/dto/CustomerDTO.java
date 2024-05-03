@@ -17,8 +17,6 @@ import java.sql.Timestamp;
 public class CustomerDTO {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name="order_iD", nullable=false, unique=true)
@@ -37,6 +35,7 @@ public class CustomerDTO {
     private String fullAddress;
 
     @Lob
+    @ToString.Exclude
     @Column(name = "backup_json", columnDefinition="BLOB")
     private byte[] backUpJSON;
 
