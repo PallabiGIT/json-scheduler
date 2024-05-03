@@ -20,14 +20,17 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
     public Iterable<CustomerDTO> getAllCustomer() {
+        log.info("GET All customer DB call triggered");
         return customerRepository.findAll();
     }
 
     public Optional<CustomerDTO> getByID(long id) {
+        log.info("GET customer by ID DB call triggered for ID - " + id);
         return customerRepository.findById(id);
     }
 
     public Optional<CustomerDTO> getByOrderID(long orderID) {
+        log.info("GET customer by customer ID DB call triggered for orderID = " + orderID);
         return StreamSupport
                 .stream(customerRepository.findAll().spliterator(), false)
                 .filter(customerDTO -> customerDTO.getOrderId().equals(orderID))
@@ -37,6 +40,7 @@ public class CustomerService {
     public void addCustomer(CustomerDTO customerDTO) {
         try {
             customerRepository.save(customerDTO);
+            log.info("Customer added successfully" + customerDTO);
         } catch (Exception e) {
             if (e instanceof ConstraintViolationException ||
                     e instanceof SQLIntegrityConstraintViolationException ||

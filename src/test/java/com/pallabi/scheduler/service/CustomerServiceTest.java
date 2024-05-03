@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.Resource;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 
 import java.io.File;
@@ -16,7 +17,7 @@ import java.nio.file.Files;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-@TestPropertySource(properties = "spring.config.location=classpath:/test-application.properties")
+@ActiveProfiles("test")
 public class CustomerServiceTest {
     @Autowired
     private CustomerService customerService;
