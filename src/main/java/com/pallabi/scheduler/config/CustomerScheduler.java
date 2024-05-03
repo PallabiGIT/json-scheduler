@@ -14,6 +14,7 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -32,8 +33,7 @@ public class CustomerScheduler {
     @Autowired
     private CustomerService customerService;
 
-    @Scheduled(cron = "0 0 0 * * ?")
-//    @Scheduled(cron= "0/10 * * ? * *")
+    @Scheduled(cron = "${cron.scheduler}")
     public void runCronJob() throws IOException {
         try {
             Resource fileSystemResource = resourceLoader.getResource(userJOSNFilePath);
@@ -44,9 +44,23 @@ public class CustomerScheduler {
                 customerService.addCustomer(customerDTO);
             });
             log.info("Cron JOB RAN SUCCESSFULLY");
-        } catch(RuntimeException e){
+            deleteFileAfterProcessing();
+        }
+        catch(FileNotFoundException e){
+            log.warn("NO Files found to process");
+        }
+        catch (RuntimeException e){
             log.error("Error while running cron JOB");
             throw e;
+        }
+    }
+
+    private void deleteFileAfterProcessing() throws IOException {
+        Resource fileSystemResource = resourceLoader.getResource(userJOSNFilePath);
+        if (fileSystemResource.getFile().delete()) {
+            log.info("Deleted the file: " + fileSystemResource.getFile().getName());
+        } else {
+           log.warn("Failed to delete the file." + fileSystemResource.getFile().getName());
         }
     }
 
