@@ -39,6 +39,6 @@ public class CustomerDTO {
     @Column(name = "backup_json", columnDefinition="BLOB")
     private byte[] backUpJSON;
 
-    @Column(name="insertion_time")
-    private Timestamp insertionTime;
+    @Column(name = "insertion_time", nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    public Timestamp insertionTime;
 }

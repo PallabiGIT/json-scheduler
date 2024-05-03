@@ -1,6 +1,5 @@
 package com.pallabi.scheduler.service;
 
-import com.pallabi.scheduler.CustomerException;
 import com.pallabi.scheduler.model.dto.CustomerDTO;
 import com.pallabi.scheduler.repository.CustomerRepository;
 import lombok.extern.slf4j.Slf4j;

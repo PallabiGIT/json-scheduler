@@ -1,0 +1,49 @@
+{
+	"info": {
+		"_postman_id": "bdf6ccbb-7add-485d-a057-9f56bc2183d5",
+		"name": "Scheduler",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5572994"
+	},
+	"item": [
+		{
+			"name": "get customer by order ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customer/10000220",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"10000220"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

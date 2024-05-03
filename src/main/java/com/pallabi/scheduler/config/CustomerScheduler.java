@@ -1,7 +1,6 @@
 package com.pallabi.scheduler.config;
 
 import com.google.gson.Gson;
-import com.pallabi.scheduler.CustomerException;
 import com.pallabi.scheduler.model.dto.CustomerDTO;
 import com.pallabi.scheduler.model.generated.Address;
 import com.pallabi.scheduler.model.generated.ComplexObject;
