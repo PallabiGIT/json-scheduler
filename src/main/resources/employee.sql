@@ -4,7 +4,7 @@ grant all on pallabi_db.* to 'pallabi'@'%'; -- Gives all privileges to the new u
 
 
 DROP TABLE Customer;
-CREATE TABLE Customer (
+CREATE TABLE db.Customer (
                        id INT PRIMARY KEY,
                        order_id INT UNIQUE,
                        name VARCHAR(50) NOT NULL,

@@ -45,7 +45,6 @@ public class TestCustomerScheduler {
         }
     }
 
-
     @Test
     public void shouldReadTheJSONAndInsertANDReadFromDBSuccessfully() throws IOException {
         customerScheduler.runCronJob();
