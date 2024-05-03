@@ -63,6 +63,11 @@
 			<artifactId>logback-core</artifactId>
 			<version>1.4.13</version>
 		</dependency>
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
 <!--		Testing library-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
