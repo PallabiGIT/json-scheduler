@@ -22,7 +22,6 @@ public class CustomerController {
     private CustomerService customerService;
 
     // Select, Insert, Delete, Update Operations for an Employee
-
     @RequestMapping(value = "/customers", method = RequestMethod.GET)
     public List<Customer> getCustomers(){
         List<CustomerDTO> customerDTOS =  StreamSupport.stream(customerService.getAllCustomer().spliterator(), false)
@@ -57,7 +56,5 @@ public class CustomerController {
         else{
             return new ResponseEntity<>("Customer not found", HttpStatus.NOT_FOUND);
         }
-
-
     }
 }

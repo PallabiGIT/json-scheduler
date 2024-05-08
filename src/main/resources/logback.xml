@@ -18,7 +18,7 @@
     <appender name="rolling" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>C:/Users/swaro/pallabi_workspce/logs/log.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>log-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>C:/Users/swaro/pallabi_workspce/logs/log-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>10MB</maxFileSize>
             <maxHistory>30</maxHistory>
             <totalSizeCap>1GB</totalSizeCap>

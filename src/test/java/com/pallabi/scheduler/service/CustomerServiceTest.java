@@ -40,7 +40,6 @@ public class CustomerServiceTest {
                 .email("Swaroop@gmail.com")
                 .postCode("gu526ht")
                 .fullAddress("2, TEST ADDRESS, TEST_POSTCODE")
-                .backUpJSON(testFile)
                 .build();
         customerService.addCustomer(customerDTO);
 
@@ -50,7 +49,6 @@ public class CustomerServiceTest {
             assertThat(customerDTO1.getEmail()).isEqualTo("Swaroop@gmail.com");
             assertThat(customerDTO1.getPostCode()).isEqualTo("gu526ht");
             assertThat(customerDTO1.getFullAddress()).isEqualTo("2, TEST ADDRESS, TEST_POSTCODE");
-            assertThat(customerDTO1.getBackUpJSON()).isEqualTo(testFile);
         });
 
         //TEST for get customer details by ID
@@ -59,7 +57,6 @@ public class CustomerServiceTest {
             assertThat(customerDTO1.getEmail()).isEqualTo("Swaroop@gmail.com");
             assertThat(customerDTO1.getPostCode()).isEqualTo("gu526ht");
             assertThat(customerDTO1.getFullAddress()).isEqualTo("2, TEST ADDRESS, TEST_POSTCODE");
-            assertThat(customerDTO1.getBackUpJSON()).isEqualTo(testFile);
         });
 
         //TEST for get all customer details

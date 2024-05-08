@@ -10,3 +10,4 @@
 10. Async logging
 11. maven plugins
 12. Microservices
+13. Actuator

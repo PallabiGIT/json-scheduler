@@ -34,11 +34,6 @@ public class CustomerDTO {
     @Column(name="full_address", nullable=false)
     private String fullAddress;
 
-    @Lob
-    @ToString.Exclude
-    @Column(name = "backup_json", columnDefinition="BLOB")
-    private byte[] backUpJSON;
-
     @Column(name = "insertion_time", nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     public Timestamp insertionTime;
 }
