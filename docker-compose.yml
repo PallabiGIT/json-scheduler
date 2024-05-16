@@ -34,9 +34,9 @@ services:
       - my-db:/var/lib/mysql
     networks:
       - scheduler
-  json-scheduler:
-    image: json-scheduler:latest
-    container_name: "json-scheduler"
+  scheduler:
+    image: scheduler:latest
+    container_name: "scheduler"
 #    volumes:
 #      - ${LOGGER_FILE_LOCATION}:/home/strategy-logs-folder
 #      - /etc/timezone:/etc/timezone:ro
@@ -45,6 +45,36 @@ services:
 #      - "LOGGER_FILE_LOCATION=/home/strategy-logs-folder"
     ports:
       - "8080:8080"
+    networks:
+      - scheduler
+    depends_on:
+      - rabbitmq
+  scheduler-api:
+    image: scheduler-api:latest
+    container_name: "scheduler-api"
+    #    volumes:
+    #      - ${LOGGER_FILE_LOCATION}:/home/strategy-logs-folder
+    #      - /etc/timezone:/etc/timezone:ro
+    #      - /etc/localtime:/etc/localtime:ro
+    #    environment:
+    #      - "LOGGER_FILE_LOCATION=/home/strategy-logs-folder"
+    ports:
+      - "8081:8081"
+    networks:
+      - scheduler
+    depends_on:
+      - mysql
+  scheduler-receiver:
+    image: scheduler-receiver:latest
+    container_name: "scheduler-receiver"
+    #    volumes:
+    #      - ${LOGGER_FILE_LOCATION}:/home/strategy-logs-folder
+    #      - /etc/timezone:/etc/timezone:ro
+    #      - /etc/localtime:/etc/localtime:ro
+    #    environment:
+    #      - "LOGGER_FILE_LOCATION=/home/strategy-logs-folder"
+    ports:
+      - "8082:8082"
     networks:
       - scheduler
     depends_on:

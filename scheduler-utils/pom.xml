@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.pallabi.scheduler</groupId>
+	<artifactId>scheduler-utils</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>scheduler-utils</name>
+	<description>Demo project for Spring Boot</description>
+	<packaging>jar</packaging>
+
+	<parent>
+		<groupId>com.pallabi.scheduler.parent</groupId>
+		<artifactId>scheduler-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath/>
+	</parent>
+
+	<properties>
+		<spring.version>6.1.6</spring.version>
+		<spring.data.version>3.2.5</spring.data.version>
+		<spring.rabbit.mq.version>3.1.4</spring.rabbit.mq.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.17.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+			<version>3.2.0-M2</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.2.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-runner</artifactId>
+			<version>1.2.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring.data.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit</artifactId>
+			<version>${spring.rabbit.mq.version}</version>
+		</dependency>
+
+
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.pallabi.scheduler.parent</groupId>
+				<artifactId>scheduler-parent</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
