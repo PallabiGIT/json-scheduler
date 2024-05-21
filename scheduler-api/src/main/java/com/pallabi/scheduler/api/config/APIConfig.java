@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
-@ComponentScan({"com.pallabi.scheduler.utils.service","com.pallabi.scheduler.utils.config"})
+@ComponentScan({"com.pallabi.scheduler.utils.service"})
 @EnableJpaRepositories("com.pallabi.scheduler.utils.repository")
 @EntityScan("com.pallabi.scheduler.utils.model.dto")
 @Import(SecurityConfiguration.class)

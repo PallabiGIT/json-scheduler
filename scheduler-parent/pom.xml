@@ -28,6 +28,11 @@
 			<version>2.12.7</version>
 		</dependency>
 		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		<dependency>
 			<groupId>com.github.fridujo</groupId>
 			<artifactId>rabbitmq-mock</artifactId>
 			<version>1.0.14</version>

@@ -3,6 +3,7 @@ package com.pallabi.scheduler.api.controller;
 import com.pallabi.scheduler.utils.model.Customer;
 import com.pallabi.scheduler.utils.model.dto.CustomerDTO;
 import com.pallabi.scheduler.utils.service.CustomerService;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,8 +39,8 @@ public class CustomerController {
                 .collect(Collectors.toList());
     }
 
-    @RequestMapping(value = "/customer/{orderId}", method = RequestMethod.GET)
-    public ResponseEntity<Object> getEmployee(@PathVariable Integer orderId){
+    @RequestMapping(value = "/customer/{orderId}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<Object> getCustomer(@PathVariable @NotNull Integer orderId){
         Optional<CustomerDTO> customerDTOOptional = customerService.getByOrderID(orderId);
         if(customerDTOOptional.isPresent()){
             CustomerDTO customerDTO = customerDTOOptional.get();
